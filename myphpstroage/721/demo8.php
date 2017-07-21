@@ -6,6 +6,7 @@
 	__CLASS__
 	__NAMESPACE__
 */
+
 function say()
 {
 	echo __FUNCTION__,'<hr>';
