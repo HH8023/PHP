@@ -1,0 +1,37 @@
+﻿##用户表
+create table user(
+	id int unsigned not null auto_increment primary key,
+	name varchar(255) not null unique,
+	pwd varchar(255) not null,
+	nickname varchar(255) not null,
+	auth tinyint not null default 0,
+	status tinyint not null default 1,
+	photo varchar(255) not null default 'default.jpg',
+	lasttime int not null default 0,
+	score int not null default 100,
+	num int not null default 0,
+	email varchar(255)
+);
+
+
+
+##分区板块表
+create table type(
+	id int unsigned not null auto_increment primary key,
+	name varchar(255) not null unique,
+	pid tinyint not null default 0,
+	path varchar(255) not null,
+	photo varchar(255)
+);
+
+
+
+
+
+
+
+
+
+
+
+
