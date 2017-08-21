@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = 'hello';
+			document.write(a+'的数据类型是：'+typeof(a)+'<br>');
+			
+			var a = 10;
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');
+			
+			var a = 10.1111;
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');
+		
+			var a = '10';
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');
+		
+			var a = true;
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');
+		
+			var a = new Object();
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');
+		
+			var a = Array(10,20,30);
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');
+		
+			var a = null;
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');
+
+			var a = function(){}
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');
+		
+			var a = NaN;
+			document.write(a+'的数据类型是:'+typeof(a)+'<br>');	
+		
+			document.write('一个不存在的数据的数据类型是:'+typeof(b)+'<br>');
+				
+			var c = 10;
+			document.write('10是否不是一个数值：'+isNaN(c)+'<br>');
+			
+			var c = '10';
+			document.write('字符串10是否不是一个数值：'+isNaN(c)+'<br>');
+		
+			var c = '10a';
+			document.write('字符串10a是否不是一个数值：'+isNaN(c)+'<br>');
+		
+			var c = NaN;
+			document.write('NaN是否不是一个数值：'+isNaN(c)+'<br>');
+					
+		</script>
+		
+		
+	</body>
+</html>

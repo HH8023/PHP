@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<img src="img/p1.png" id="mid"/>
+		
+		<script type="text/javascript">
+			//从文档中获取元素（标签），通过id的方式
+			var mid = document.getElementById('mid');
+			//obj->name = 'zhangsan';
+			mid.width = '300';
+			
+			//setTimeout()单次定时
+			// setTimeout(function(){
+			// 	mid.src = './images/p2.png';
+			// },3000);
+			
+			var i = 1;
+			setInterval(function(){
+				i++;
+				mid.src = 'img/p'+i+'.png';
+				if(i>4){
+					i=0;
+				}
+			},300);
+			
+		</script>
+		
+	</body>
+</html>

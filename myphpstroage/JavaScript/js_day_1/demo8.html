@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="pid" value="" />
+		<!--click点击事件-->
+		<!--on触发-->
+		<button onclick="getInp()">获取</button>
+		<button onclick="setInp()">赋值123</button>
+		
+		<div style="width: 200px;height: 200px;background: red;" id="did"></div>
+		
+		<button onclick="doBig()">变大</button>
+		<button onclick="stopB()">停止</button>
+		
+		<script type="text/javascript">
+			var inp = document.getElementById('pid');
+			var mytime;
+			
+			function getInp(){
+				var val = inp.value;
+				alert(val);
+			}
+			
+			function setInp(){
+				inp.value = '123';
+			}
+			
+			function doBig(){
+				var did = document.getElementById('did');
+				// did.style = 'width:400px;height:400px;background:pink;';
+				// 同等于
+				// did.style.width = '400px';
+				// did.style.height = '400px';				
+				
+				mytime = setInterval(function(){
+					did.style.width = parseInt(did.style.width)+1+'px';
+					did.style.height = parseInt(did.style.height)+1+'px';
+					if(parseInt(did.style.width)>400){
+						clearInterval(mytime);
+					}
+				},300);
+			}
+			
+			function stopB(){
+				clearInterval(mytime);
+			}
+			
+		</script>
+		
+		
+	</body>
+</html>

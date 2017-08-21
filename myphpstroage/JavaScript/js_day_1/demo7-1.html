@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/p1.png" id="mid"/>
+		
+		<script type="text/javascript">
+			var mid = document.getElementById('mid');
+			mid.width = '300';
+			
+			var i = 1;
+			setInterval(function(){
+				i++;
+				mid.src = 'img/p'+i+'.png';
+				if(i>4){
+					i=0;
+				}
+			},300);
+			
+			
+		</script>
+		
+	</body>
+</html>
