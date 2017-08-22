@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var num = 10;
+	var name = 10;
+	function fun()
+	{
+		alert(name);
+		var name = 'zhang3';
+
+		//等同于
+		// var name;
+		// alert(name);
+		// name = 'zhang3';
+
+		//在函数内，使用var 来定义一个变量，是局部变量，出了函数不能使用
+		// var num = 10;
+
+		// 在函数内，不使用var 来定义一个变量，是全局变量
+		// num = 10;
+		
+	}
+	fun();
+	// alert(num);
+	// document.write('aaa'+name);
+</script>
+</html>

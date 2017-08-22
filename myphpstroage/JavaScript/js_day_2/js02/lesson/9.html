@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="doHide('none')">隐藏</button>
+	<button onclick="doHide('block')">显示</button>
+	<div id='did' style='width:200px;height:200px;background: blue;'></div>
+</body>
+<script>
+	var did = document.getElementById('did');
+	function doHide(a)
+	{
+		// if(did.style.display == 'none'){
+		// 	did.style.display = 'block';
+		// }else{
+		// 	did.style.display = 'none';
+		// }
+		
+		did.style.display = a;
+	}
+
+</script>
+</html>

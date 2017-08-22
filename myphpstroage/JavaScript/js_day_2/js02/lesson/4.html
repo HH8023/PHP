@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//escape字串编码
+	//unescape字串反编码
+	//eval将参数字符串作为脚本代码来执行。
+	var url = 'http://www.itxdl.cn?name=zhang3&age=20';
+	document.write('url原地址：'+url+'<br>');
+	document.write('转码后的地址：'+escape(url)+'<br>');
+
+	var url2 = 'http%3A//www.itxdl.cn%3Fname%3Dzhang3%26age%3D20';
+	document.write('反转码的地址：'+unescape(url2));
+
+	var str = 'var name = "li4"';
+	var a = 10;
+	var b = 20;
+	var num = 'var c = a+b';
+	eval(num);
+	alert(c);
+</script>
+</html>

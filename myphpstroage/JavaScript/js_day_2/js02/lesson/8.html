@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	倒计时：<input type="text" id='tid'>
+	<button onclick='doStart()' id='bid'>开始</button>
+	<button onclick='doStop()'>结束</button>
+	<div id='did' style='font-size: 50px'></div>
+</body>
+<script>
+	var did = document.getElementById('did');
+	var tid = document.getElementById('tid');
+	var bid = document.getElementById('bid');
+	var m;
+	var mytime = null;
+	function doStart()
+	{
+		//判断按钮是否是开始按钮
+		if(bid.innerHTML == '开始'){
+			// 把按钮显示的内容变成暂停
+			bid.innerHTML = '暂停';
+			//判断计时器是否启动
+			if(mytime == null){
+				// innerHTML html标签的中间
+				did.innerHTML = tid.value;
+				//启动定时器
+				mytime = setInterval(function(){
+					//获取用户输入的倒计时数
+					m = parseInt(did.innerHTML);
+					m--;
+					did.innerHTML = m;
+					// console.log(m);
+					// 判断倒计时是否到0
+					if(m == 0){
+						//让计时器停止
+						clearInterval(mytime);
+						// 重置定时器变量
+						mytime = null;
+						alert('boom');
+					}
+				},1000);
+			}			
+		}else{
+			//如果是暂停按钮，则把按钮的值变成开始
+			bid.innerHTML = '开始';
+			//停止计时器
+			clearInterval(mytime);
+			// 重置定时器变量
+			mytime = null;
+			// 保存当前倒计时的数到input中
+			tid.value = did.innerHTML;
+		}
+		
+	}
+
+	function doStop()
+	{
+		bid.innerHTML = '开始';
+		clearInterval(mytime);
+		mytime = null;
+	}
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	#box{
+		width:600px;
+		border:1px solid #ccc;
+		padding-bottom: 20px
+	}
+	#show{
+		margin:20px auto;
+		width:500px;
+		height: 60px;
+	}
+	#res{
+		width:500px;
+		height: 60px;
+		font-size: 40px;
+		text-align: right;
+	}
+	#buttons{
+		margin:0px auto;
+		width:500px;
+	}
+	button{
+		width:115px;
+		margin:3px;
+		height:60px;
+		font-size: 40px;
+	}
+</style>
+<body>
+	<div id="box">
+		<div id="show">
+			<input type="text" id="res">
+		</div>
+		<div id="buttons">
+			<button onclick="getContent(this)">7</button>
+			<button onclick="getContent(this)">8</button>
+			<button onclick="getContent(this)">9</button>
+			<button onclick="getContent(this)">/</button>
+			<button onclick="getContent(this)">4</button>
+			<button onclick="getContent(this)">5</button>
+			<button onclick="getContent(this)">6</button>
+			<button onclick="getContent(this)">*</button>
+			<button onclick="getContent(this)">1</button>
+			<button onclick="getContent(this)">2</button>
+			<button onclick="getContent(this)">3</button>
+			<button onclick="getContent(this)">-</button>
+			<button onclick="getContent(this)">0</button>
+			<button onclick="runing()">=</button>
+			<button onclick="clearShow()">C</button>
+			<button onclick="getContent(this)">+</button>
+		</div>
+	</div>
+</body>
+<script>
+	var inp = document.getElementById('res');
+	function getContent(obj)
+	{
+		inp.value += obj.innerHTML;
+		// alert(typeof(obj.innerHTML));
+	}
+
+	function runing()
+	{
+		// eval将参数字符串作为脚本代码来执行。
+		inp.value = eval(inp.value);
+	}
+
+	function clearShow()
+	{
+		inp.value = '';
+	}
+</script>
+</html>

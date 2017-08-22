@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function run()
+	{
+		//arguments用来获取所有传入的参数的对象
+		// alert(typeof(arguments));
+		// console.log(arguments);
+		var total = 0;
+		for(var i = 0; i < arguments.length; i++){
+			total += arguments[i];
+		}
+		return total;
+	}
+	document.write('和为：'+run(10,20,30,40,50));
+
+	//给函数的参数默认值（不好使）（只有火狐能用）
+	function fun(a,b,c,d=40){
+		alert(a+b+c);
+	}
+	fun(10,20,30);
+</script>
+</html>
