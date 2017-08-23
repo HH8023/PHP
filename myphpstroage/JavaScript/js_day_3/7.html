@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 3.定义对象的方式(了解)
+	function Stu(name,age)
+	{
+		this.name = name;
+		this.age = age;
+
+		this.getInfo = function()
+		{
+			return this.name+':'+this.age;
+		}
+	}
+
+	var ob = new Stu('zhao6',1000);
+
+	document.write(ob.name+'<br>');
+	document.write(ob.getInfo());
+</script>
+</html>
