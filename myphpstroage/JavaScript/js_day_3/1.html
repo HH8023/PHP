@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+    // 第一种函数的定义
+    function fun()
+    {
+    	document.write('第一种方式<br>');	
+    }
+    fun();
+
+    //带参数的函数
+    function add(a,b)
+    {
+    	// document.write(a+b);
+    	return a+b;
+    }
+    document.write('你好呀'+add(10,20)+'<br>');
+
+    // 第二种定义函数的方式
+    var fun1 = function(a,b)
+    {
+    	return a+b;
+    }
+    document.write(fun1(20,30)+'<br>');
+
+    // 第三种定义函数的方式(了解)
+    var demo = new Function('a','b','c','var d=a+b+c;return d;');
+    document.write(demo(40,50,60));
+</script>
+</html>
