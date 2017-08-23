@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//1.定义对象的方式
+	var ob = new Object();		//创建一个空对象
+	ob.name = 'wang8';			//为对象创建一个属性，并赋值
+	ob.age = 1000;
+
+	console.log(ob);	
+	ob.getInfo = function()		//为对象创建一个方法
+	{
+		// $this->name;
+		return this.name+':'+this.age;
+	}
+
+	document.write('对象ob中的name属性'+ob.name+'<br>');
+	document.write('对象ob中的getInfo方法'+ob.getInfo()+'<br>');
+</script>
+</html>
