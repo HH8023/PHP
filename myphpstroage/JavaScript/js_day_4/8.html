@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{margin:0px;padding: 0px}
+	#small,#big{
+		width:400px;
+		height: 400px;
+		border:1px solid #ddd;
+		position:absolute;
+		top:100px;
+	}
+
+	#small{
+		left:100px;
+	}
+
+	#big{
+		left:550px;
+		overflow:hidden;
+	}
+
+	#move{
+		width:160px;
+		height:160px;
+		background-image: url('./images/bg.png');
+		position: absolute;
+		left:0px;
+		top:0px;
+	}
+
+	#bigImage{
+		position:absolute;
+	}
+</style>
+<body>
+	<div id='small'>
+		<img src="./images/2.jpg" width='100%'>
+		<div id='move'></div>
+	</div>
+
+	<div id='big'>
+		<img src="./images/2.jpg" id='bigImage'>
+	</div>
+</body>
+<script>
+	// 获取对象
+	var	small = document.getElementById('small');
+	var	big = document.getElementById('big');
+	var	move = document.getElementById('move');
+	var	bigImage = document.getElementById('bigImage');
+
+	small.onmousemove = function(en)
+	{
+		// 获取鼠标所在位置
+		var x = en.clientX;
+		var y = en.clientY;
+
+		//获取small 距离浏览器边的距离
+		var l = small.offsetLeft;
+		var t = small.offsetTop;
+
+		//获取move的宽度
+		var w = move.offsetWidth;
+		var h = move.offsetHeight;
+
+		//浮动小方块的位置
+		var newLeft = x - l - (w/2);
+		var newTop = y - t - (h/2);
+		
+		// 判断是否超出左边
+		if(newLeft < 0){
+			newLeft = 0;
+		}
+
+		//判断是否超出右边
+		var maxLeft = small.offsetWidth - w;
+		if(newLeft > maxLeft){
+			newLeft = maxLeft;
+		}
+
+		//判断上边和下边
+		if(newTop < 0){
+			newTop = 0;
+		}
+
+		var maxTop = small.offsetHeight - h;
+		if(newTop > maxTop){
+			newTop = maxTop;
+		}		
+
+		//确定小方块的位置
+		move.style.left = newLeft+'px';
+		move.style.top = newTop+'px';
+
+		//a 小方块距离small的左边距
+		//b small的宽度
+		//c 大图到big的距离
+		//d 大图的宽度
+		//a:b = c:d
+		var a = newLeft;
+		var b = small.offsetWidth;
+		var d = bigImage.offsetWidth;
+		var c = a*d/b;
+
+		bigImage.style.left = -c+'px';
+
+		var a1 = newTop;
+		var b1 = small.offsetHeight;
+		var d1 = bigImage.offsetHeight;
+		var c1 = a1*d1/b1;
+
+		bigImage.style.top = -c1+'px';		
+	}
+</script>
+</html>
