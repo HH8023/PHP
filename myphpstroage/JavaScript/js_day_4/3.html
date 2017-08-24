@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick='fun(this)'>one</button>
+
+	<button id='btn'>two</button>
+	
+</body>
+<script>
+	// 没有事件源的绑定方式，需要从外部传入this
+	function fun(obj)
+	{
+		alert(obj.innerHTML);
+	}
+
+	//在事件源，事件，事件处理程序一起的绑定事件中，可以直接使用this
+	document.getElementById('btn').onclick = function()
+	{
+		alert(this.innerHTML);
+	}
+
+</script>
+</html>
