@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>aaaaa01</h3>
+	<h3>aaaaa02</h3>
+	<h3>aaaaa03</h3>
+	<h3>aaaaa04</h3>
+	<h3>aaaaa05</h3>
+
+</body>
+<script>
+	var list = document.getElementsByTagName('h3');
+	for(var i = 0; i < list.length; i++){
+		document.write(i+'=====>'+list[i].innerHTML+'<br>');
+	}
+
+	var arr = [10,20,30];
+	for (var i = 0; i < arr.length; i++) {
+		document.write(arr[i]+'<br>');
+	}
+
+	for (var i in arr){
+		document.write(arr[i]+'<br>');
+	}
+
+	with(document){
+		write('<hr>');
+		write('bbbbbbbbb');
+		write('bbbbbbbbb');
+		write('bbbbbbbbb');
+		write('bbbbbbbbb');		
+	}
+	
+	var arr1 = new Array(10,20);  //长度为10的数组
+	arr1[18] = 50;
+	arr1['age'] = 28;
+	arr1.age = 28;
+	alert(arr1.length);
+
+	
+	// 宋高飞
+	
+	// 765~998
+	// 998-765 = 233
+	// 123
+	// 0~233
+	// 765~998
+	(Math.round(Math.random()*1000)%234)+765;
+</script>
+</html>
