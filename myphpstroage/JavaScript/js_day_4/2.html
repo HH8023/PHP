@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 第一种绑定事件的方式(优点：事件处理程序可以提供给多个事件调用，事件三要素一路了然) -->
+	<button onclick='fun()'>单击</button>
+	<button onclick='fun()'>单击三</button>
+	
+	<!-- 第二种绑定事件的方式(优点，节省资源，提高运行效率，修改三要素相对简单) -->
+	<button id='btn'>单击二</button>
+</body>
+<script>
+	function fun()
+	{
+		alert(111111111);
+	}
+
+	document.getElementById('btn').onclick = function()
+	{
+		alert(2222222);
+	}
+</script>
+</html>
