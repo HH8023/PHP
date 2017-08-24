@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>aaaaaaaaa01</li>
+		<li>aaaaaaaaa02</li>
+		<li>aaaaaaaaa03</li>
+		<li>aaaaaaaaa04</li>
+		<li>aaaaaaaaa05</li>
+	</ul>
+</body>
+<script>
+	// 获取对象集合
+	var list = document.getElementsByTagName('li');
+	for (var i = 0; i < list.length; i++) {
+		list[i].ondblclick = function(){
+			//因为在循环中遍历绑定事件，那么i会自动递增，所以需要在遍历绑定事件中使用this代表当前绑定的对象
+			this.style.backgroundColor = 'red';
+		}
+	}
+
+	// var i = 0;
+	// list[i].ondblclick = function(){
+	// 	list[i].style.backgroundColor = 'red';
+	// }
+	// i++;
+	// list[i].ondblclick = function(){
+	// 	list[i].style.backgroundColor = 'red';
+	// }
+	// i++;
+	// list[i].ondblclick = function(){
+	// 	list[i].style.backgroundColor = 'red';
+	// }	
+	// i++;
+	// list[i].ondblclick = function(){
+	// 	list[i].style.backgroundColor = 'red';
+	// }	
+	// i++;
+	// list[i].ondblclick = function(){
+	// 	list[i].style.backgroundColor = 'red';
+	// }
+	// // i == 5;
+	
+</script>
+</html>
