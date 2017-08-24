@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>aaaaa01</li>
+		<li>aaaaa02</li>
+		<li>aaaaa03</li>
+		<li>aaaaa04</li>
+		<li>aaaaa05</li>
+	</ul>
+</body>
+<script>
+	// 获取对象集合
+	var list = document.getElementsByTagName('li');
+	//临时保存原来的颜色
+	var color;
+	for (var i = 0; i < list.length; i++) {
+		//隔行换色
+		if(i%2 == 0){
+			list[i].style.backgroundColor = '#05EA3D';
+		}
+		//mouse鼠标
+		//over移入
+		list[i].onmouseover = function()
+		{
+			color = this.style.backgroundColor;
+			this.style.backgroundColor = '#2DC4D7';
+		}
+
+		//out 退出移出
+		list[i].onmouseout = function()
+		{
+			this.style.backgroundColor = color;
+		}
+	}
+</script>
+</html>
