@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	div,ul,li{margin:0px;padding: 0px;}
+	ul{
+		list-style: none;
+	}
+	#did{
+		background-color: #ddd;
+		width:100px;
+		position:absolute;
+		display:none;
+	}
+	#did ul li{
+		line-height:25px;
+		height:25px;
+		text-align: center;
+	}
+	#did ul li:hover{
+		background-color: #E59FE7;
+	}
+</style>
+<body>
+	<div id='did' style=''>
+		<ul>
+			<li>粘贴</li>
+			<li>复制</li>
+			<li>剪切</li>
+		</ul>
+	</div>
+</body>
+<script>
+	var did = document.getElementById('did');
+	document.oncontextmenu = function(ent)
+	{
+		//ent代表事件对象本身
+		var x = ent.clientX;	//获取鼠标在触发事件时所在的x轴坐标
+		var y = ent.clientY;	//获取鼠标在触发事件时所在的y轴坐标
+
+		//在文档标题中显示鼠标坐标
+		document.title = x+':'+y;
+
+		//给div赋值定位到鼠标所在坐标
+		did.style.left = x+'px';
+		did.style.top = y+'px';
+
+		did.style.display = 'block';
+
+		// 禁止系统默认行为
+		return false;
+	}
+
+	document.onclick = function()
+	{
+		did.style.display = 'none';
+	}
+</script>
+</html>
