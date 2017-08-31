@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick='doAjax()'>点击</button>
+	<div id='did' style='width:300px;height:300px;border:1px solid blue;'></div>
+</body>
+<script>
+	function doAjax()
+	{
+		var xmlHttp;
+		// 第一步：创建ajax对象
+		try{
+			// Firefox, Opera 8.0+, Safari
+	    	xmlHttp=new XMLHttpRequest();
+		}
+		catch(e)
+		{
+			//IE
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		// 第二部：设置回调函数（监听事件）
+		xmlHttp.onreadystatechange = function()
+		{
+			// 发送给服务器的请求是否响应完毕
+			if(xmlHttp.readyState == 4){
+				//因为穿回来的是一个json的字符串，需要使用eval吧他作为脚本来执行，因为他只是定义对象数组，所以需要给他拼接一个var obj
+				eval('var obj = '+xmlHttp.responseText);
+				console.log(obj);
+				var info = '<ul>';
+				//遍历从php传过来并且转成了js数组对象的数组
+				for (var i = 0; i < obj.length; i++) {
+					info += '<li>'+obj[i].name+':'+obj[i].age+'</li>';
+				}
+				info += '</ul>';
+				//把拼接好的字符串放到div里面
+				document.getElementById('did').innerHTML = info;
+				// alert(xmlHttp.responseText);
+			}
+		}
+
+		//第三步：初始化发送请求
+		//第一个参数：请求方式   get   post
+		//第二个参数：请求地址   url
+		//第三个参数：是否异步   
+		xmlHttp.open('get','7.php',true);
+
+		//第四步：发送请求
+		xmlHttp.send();
+
+	}	
+</script>
+</html>

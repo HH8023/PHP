@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="" name='myform'>
+		num1: <input type="text" name="num1" id=""><br><br>
+		num2: <input type="text" name="num2" id=""><br><br>
+		<input type="button" value="+" onclick="doAjax(1)">
+		<input type="button" value="-" onclick="doAjax(2)">
+		<input type="button" value="*" onclick="doAjax(3)">
+		<input type="button" value="/" onclick="doAjax(4)">
+	</form>
+	结果：<span id='info'></span>
+</body>
+<script>
+	var info = document.getElementById('info');
+	function doAjax(c)
+	{
+		var m1 = document.myform.num1.value;
+		var m2 = document.myform.num2.value;
+
+		var xmlHttp;
+		// 第一步：创建ajax对象
+		try{
+			// Firefox, Opera 8.0+, Safari
+	    	xmlHttp=new XMLHttpRequest();
+		}
+		catch(e)
+		{
+			//IE
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		// 第二部：设置回调函数（监听事件）
+		xmlHttp.onreadystatechange = function()
+		{
+			// 发送给服务器的请求是否响应完毕
+			if(xmlHttp.readyState == 4){
+				info.innerHTML = xmlHttp.responseText;
+				// alert(xmlHttp.responseText);
+			}
+		}
+
+		//第三步：初始化发送请求
+		//第一个参数：请求方式   get   post
+		//第二个参数：请求地址   url
+		//第三个参数：是否异步   
+		xmlHttp.open('get','4.5.php?m1='+m1+'&m2='+m2+'&c='+c,false);
+
+		//第四步：发送请求
+		xmlHttp.send();		
+	}	
+</script>
+</html>

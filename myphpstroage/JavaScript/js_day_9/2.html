@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick='doAjax()'>ajax请求</button>
+	<div id='did'></div>
+</body>
+<script>
+	var did = document.getElementById('did');
+	function doAjax()
+	{
+		var xmlHttp;
+		// 第一步：创建ajax对象
+		try{
+			// Firefox, Opera 8.0+, Safari
+	    	xmlHttp=new XMLHttpRequest();
+		}
+		catch(e)
+		{
+			//IE
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		// 第二部：设置回调函数（监听事件）
+		xmlHttp.onreadystatechange = function()
+		{
+			// 发送给服务器的请求是否响应完毕
+			if(xmlHttp.readyState == 4){
+				// response   响应
+				var img = document.createElement('img');	//<img>
+				img.src = xmlHttp.responseText;
+				did.appendChild(img);
+			}
+		}
+
+		//第三步：初始化发送请求
+		//第一个参数：请求方式   get   post
+		//第二个参数：请求地址   url
+		//第三个参数：是否异步   
+		xmlHttp.open('get','2.php',false);
+
+		//第四步：发送请求
+		xmlHttp.send();		
+	}
+	
+</script>
+</html>

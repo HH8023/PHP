@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table id="table" width='500' border='1'>
+		
+	</table>
+	<table>
+		<form action="" onsubmit='return doadd(this)'>
+			<tr>
+				<td>姓名：</td>
+				<td><input type="text" name="name" id=""></td>
+			</tr>
+			<tr>
+				<td>性别：</td>
+				<td>
+					<input type="radio" name="sex" id="" value='1'>男
+					<input type="radio" name="sex" id="" value='2'>女
+				</td>
+			</tr>
+			<tr>
+				<td>年龄：</td>
+				<td><input type="text" name="age" id=""></td>
+			</tr>
+			<tr>
+				<td>班级：</td>
+				<td><input type="text" name="classId" id=""></td>
+			</tr>
+			<tr>
+				<td colspan='2' align='center'>
+					<input type="submit" value="提交">
+				</td>
+			</tr>
+		</form>
+	</table>
+</body>
+<script>
+	var tab = document.getElementById('table');
+	var xmlHttp;
+	// 第一步：创建ajax对象
+	try{
+		// Firefox, Opera 8.0+, Safari
+    	xmlHttp=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		//IE
+		xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	// 第二部：设置回调函数（监听事件）
+	xmlHttp.onreadystatechange = function()
+	{
+		// 发送给服务器的请求是否响应完毕
+		if(xmlHttp.readyState == 4){
+			eval('var arr = '+xmlHttp.responseText);
+			var info = `<tr>
+							<th>学号</th>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>年龄</th>
+							<th>班级</th>
+							<th>操作</th>							
+						</tr>`;
+			for (var i = 0; i < arr.length; i++) {
+				info += `<tr>
+							<td>`+arr[i].id+`</td>
+							<td>`+arr[i].name+`</td>
+							<td>`+arr[i].sex+`</td>
+							<td>`+arr[i].age+`</td>
+							<td>`+arr[i].classId+`</td>
+							<td>
+								<button onclick='doDel(this)'>删除</button>
+							</td>							
+						</tr>`;
+			}
+			tab.innerHTML = info;
+		}
+	}
+
+	//第三步：初始化发送请求
+	//第一个参数：请求方式   get   post
+	//第二个参数：请求地址   url
+	//第三个参数：是否异步   
+	xmlHttp.open('get','8.php',true);
+
+	//第四步：发送请求
+	xmlHttp.send();	
+
+	
+	function doDel(obj)
+	{
+		//parentNode父节点
+		//obj.parentNode(td)
+		//obj.parentNode.parentNode(tr)
+		tab.deleteRow(obj.parentNode.parentNode.rowIndex);
+	}
+
+	function doadd(form)
+	{
+		var name = form.name.value;
+		var sex = form.sex[0].checked?'男':'女';
+		var age = form.age.value;
+		var classId = form.classId.value;
+
+		// 创建一个空行
+		var row = tab.insertRow(tab.rows.length);
+
+		//创建一个个空的列，然后给列添加内容
+		row.insertCell(row.cells.length).innerHTML = 6;
+		row.insertCell(row.cells.length).innerHTML = name;
+		row.insertCell(row.cells.length).innerHTML = sex;
+		row.insertCell(row.cells.length).innerHTML = age;
+		row.insertCell(row.cells.length).innerHTML = classId;
+		row.insertCell(row.cells.length).innerHTML = "<button onclick='doDel(this)'>删除</button>";
+
+		return false;
+	}
+
+</script>
+</html>
