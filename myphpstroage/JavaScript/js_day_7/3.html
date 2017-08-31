@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	div{
+		float:left;
+		margin:50px;
+		cursor:pointer;
+	}
+	.box1{
+		width: 400px;
+		height: 400px;
+		border-radius: 50%;
+		background: red;
+	}
+	.box2{
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		background: green;
+	}
+	.box3{
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		background: blue;
+	}		
+	.box4{
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background: yellow;
+	}	
+</style>
+<body>
+	<h1>事件冒泡</h1>
+	<div class='box1'>
+		<div class='box2'>
+			<div class='box3'>
+				<div class="box4"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var div = document.getElementsByTagName('div');
+	for (var i = 0; i < div.length; i++) {
+		div[i].onclick = function(ent)
+		{
+			this.style.background = 'black';
+			//阻止事件冒泡
+			ent.stopPropagation();
+		}
+	}
+</script>
+</html>

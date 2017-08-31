@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="./images/error.jpg" info='./images/File_129.jpg'>
+	<img src="./images/error.jpg" info='./images/File_130.jpg'>
+	<img src="./images/error.jpg" info='./images/File_131.jpg'>
+	<img src="./images/error.jpg" info='./images/File_132.jpg'>
+</body>
+<script>
+	setTimeout(function(){
+		var imgs = document.images;
+		for (var i = 0; i < imgs.length; i++) {
+			//获取info属性的值赋给src属性
+			imgs[i].src = imgs[i].getAttribute('info');
+		}
+	},3000);
+</script>
+</html>

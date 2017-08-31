@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 1.html加入购物车 -->
+	<!-- 2.html立即购买 -->
+	<form action="" name='myform'>
+		姓名：<input type="text" name='name'>
+	</form>
+	<button onclick='doCar()'>加入购物车</button>
+	<button onclick='doBuy()'>立即购买</button>
+</body>
+<script>
+	function doCar()
+	{
+		var form = document.myform;
+		form.action = '1.html';
+		form.method = 'post';
+		form.submit();
+	}
+
+	function doBuy()
+	{
+		var form = document.myform;
+		form.action = '2.html';
+		form.method = 'get';
+		form.submit();
+	}	
+</script>
+</html>

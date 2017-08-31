@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	select{
+		border:1px solid #ddd;
+		width:100px;
+		height:200px;
+		float: left;
+	}
+	div{
+		width:80px;
+		height:200px;
+		float: left;
+		text-align: center;
+	}
+	div button{
+		margin-top:50px;
+		width:50px;
+		height:30px;
+	}
+</style>
+<body>
+	<select id="lid" size='10' multiple>
+		<option>苍井空</option>
+		<option>波多野结衣</option>
+		<option>泷泽萝拉</option>
+		<option>小泽玛利亚</option>
+		<option>加藤鹰</option>
+		<option>武藤兰</option>
+	</select>
+	<div>
+		<button onclick='doMove("lid","rid")'>>></button>
+		<button onclick='doMove("rid","lid")'><<</button>
+	</div>
+	<select id="rid" size='10' multiple>
+		<option>武藤兰1</option>
+		<option>武藤兰2</option>
+	</select>
+</body>
+<script>
+	function doMove(id1,id2)
+	{
+		var lid = document.getElementById(id1);
+		var rid = document.getElementById(id2);
+		var list = lid.options;
+		// for (var i = 0; i < list.length; i++) {
+		// 	// alert(list[i].selected);
+		// 	if(list[i].selected){
+		// 		//取消选中状态
+		// 		list[i].selected = false;
+		// 		//因为对象唯一，所以移动后原来的就移走了
+		// 		rid.add(list[i]);
+		// 		//因为数组下表必须是连续的从0开始，如果有一个被移走了，那么数组会重新排序
+		// 		i--;
+		// 	}
+		// }
+		
+		
+		//
+		for (var i = list.length-1; i >= 0; i--) {
+			// alert(list[i].selected);
+			if(list[i].selected){
+				//取消选中状态
+				list[i].selected = false;
+				//因为对象唯一，所以移动后原来的就移走了
+				rid.add(list[i]);
+				//因为数组下表必须是连续的从0开始，如果有一个被移走了，那么数组会重新排序
+			}
+		}
+	}
+
+</script>
+</html>

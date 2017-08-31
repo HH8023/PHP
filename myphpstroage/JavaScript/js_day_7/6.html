@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li><input type="checkbox" name="like[]" value='0' id="">扯犊子</li>
+		<li><input type="checkbox" name="like[]" value='1' id="">滚犊子</li>
+		<li><input type="checkbox" name="like[]" value='2' id="">瘪犊子</li>
+		<li><input type="checkbox" name="like[]" value='3' id="">王八犊子</li>
+		<li><input type="checkbox" name="like[]" value='4' id="">完犊子</li>
+	</ul>
+	<button onclick='doGet()'>获取</button>
+</body>
+<script>
+	function doGet()
+	{
+		var res = '';
+		var list = document.getElementsByTagName('input');
+		for (var i = 0; i < list.length; i++) {
+			if(list[i].checked){
+				res += list[i].value+',';
+			}
+		}
+		alert(res);
+	}
+</script>
+</html>

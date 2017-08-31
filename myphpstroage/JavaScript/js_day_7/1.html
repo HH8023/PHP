@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class='cc'>bbbbb</div>
+	<ul>
+		<li class='cc'>aaa011</li>
+		<li>aaa021</li>
+		<li class='bb'>aaa031</li>
+	</ul>
+	<ul>
+		<li>aaa012</li>
+		<li class='cc bb'>aaa022</li>
+		<li>aaa032</li>
+	</ul>
+</body>
+<script>
+	
+	function getClassName(cName)
+	{
+		//定义一个空数组，用来保存要返回的数组对象
+		var res = [];
+		//获取所有的html元素节点
+		var list = document.all;
+		//循环所有的元素节点
+		for (var i = 0; i < list.length; i++) {
+			// 判断是不是你想要的节点
+			if(list[i].className == cName){
+				//保存到返回的数组对象中
+				res[res.length] = list[i];
+			}
+		}
+		//把对象集合返回调用的地方
+		return res;
+	}
+
+	//对象集合
+	var list = getClassName('bb');	//getElementsByTagName()
+	for (var i = 0; i < list.length; i++) {
+		list[i].style.color = 'red';
+	}
+</script>
+</html>

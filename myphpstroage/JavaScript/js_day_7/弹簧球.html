@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div style='width:500px;height:500px;border:1px solid blue;position:relative;'>
+		<img id='bid' src="./images/RedPiece.png" style='position:absolute;top:10px;left:240px'>
+	</div>
+</body>
+<script>
+	// 下掉的速度
+	var x = 0;
+	// 设置定时器
+	setInterval(function(){
+		// 获取球对象
+		var bid = document.getElementById('bid');
+		// 假设球+此次下掉的速度>底边，说明掉地上了
+		if(bid.offsetTop + x > 480){
+			// 让他停在底边
+			bid.style.top = 480 + 'px';
+			// x = -x回弹到原来的位置 +5 损耗掉一部分弹力
+			x = -x + 5;
+		}else{
+			//每次球的位置
+			bid.style.top = bid.offsetTop + x + 'px';
+		}
+		
+		//2重力加速度
+		x += 2;
+
+	},20);
+</script>
+</html>
