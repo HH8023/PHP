@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select name="" id="" onChange="doChange(this.value)">
+		<option value="">--请选择--</option>
+		<option value="1">--山东--</option>
+		<option value="2">--山西--</option>
+		<option value="3">--河北--</option>
+		<option value="4">--河南--</option>
+	</select>
+	<select name="" id="cid">
+		<option value="">--请选择--</option>
+	</select>
+</body>
+<script>
+	var city = {};
+	city[1] = ['济南','青岛','烟台','日照'];
+	city[2] = ['太原','大同','运城','晋城'];
+	city[3] = ['石家庄','张家口','秦皇岛','保定'];
+	city[4] = ['郑州','洛阳','开封','驻马店'];
+	// list = ['济南','青岛','烟台','日照'];
+	// list[0]
+
+	function doChange(ob)
+	{
+		var cid = document.getElementById('cid');
+		//给长度赋值，超过长度的部分会被清空
+		cid.length = 1;
+		for (var i = 0; i < city[ob].length; i++) {
+			//生成option选项
+			cid.add(new Option(city[ob][i],i));
+		}
+	}
+</script>
+</html>
