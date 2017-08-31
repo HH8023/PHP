@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="1.html" name='myform' onsubmit='return doSubmit()'>
+		账号：<input type="text" name='uname' value='请输入用户名' onfocus='clearName(this)' onblur='checkName()'><br><br>
+		年龄：<input type="text" name='age' onblur='checkAge()'>
+		<input type="submit">
+	</form>
+</body>
+<script>
+	var uname = document.myform.uname;
+	function clearName(ob)
+	{
+		ob.value = '';
+	}
+
+	function checkName()
+	{
+		if(uname.value.match(/^[\w]{8,12}$/) == null){
+			alert('账号输入不符合长度');
+			return false;
+		}
+		
+		return true;
+	}
+
+	function checkAge()
+	{
+		var age = document.myform.age;
+		if(age.value < 18){
+			alert('当前网站不适合你');
+			return false;
+		}
+		
+		return true;
+	}
+
+	function doSubmit()
+	{
+		return checkName() && checkAge();
+	}
+
+
+</script>
+</html>
