@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#did{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			border:1px solid blue;
+		}
+		#xid{
+			width:50px;
+			height: 50px;
+			background-color: red;
+			position: absolute;
+			top: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div id='did'>
+		<div id='xid' style='left:150px;'></div>
+	</div>	
+</body>
+<script>
+	var xid = document.getElementById('xid');
+	var did = document.getElementById('did');
+
+	document.onkeydown = function(ent)
+	{
+		//弹出键盘码
+		// alert(ent.keyCode);
+		switch(ent.keyCode){
+			case 37:
+				// xid.style.left = 250+'px';
+				// alert(typeof(xid.offsetLeft));
+				xid.style.left = Math.max(0,xid.offsetLeft - 5) + 'px';
+			break;
+			case 38:
+				xid.style.top = Math.max(0,xid.offsetTop - 5) + 'px';
+			break;
+			case 39:
+				// alert(did.offsetWidth);
+				xid.style.left = Math.min(did.offsetWidth - xid.offsetWidth - 2,xid.offsetLeft + 5) + 'px';
+			break;			
+			case 40:
+				xid.style.top = Math.min(did.offsetHeight - xid.offsetHeight - 2,xid.offsetTop + 5) + 'px';
+			break;
+
+		}
+		
+	}
+</script>
+</html>
