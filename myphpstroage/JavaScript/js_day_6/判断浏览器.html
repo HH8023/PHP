@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>JavaScript中的DOM中的BOM</title>
+    </head>
+    <body>
+        <h3 class="">Window对象属性navigator浏览器对象</h3>
+        <script type="text/javascript">
+            //判断浏览器
+            if(isIE()){
+                document.write("当前为IE浏览器！");
+            }else if(isOpera()){
+                document.write("当前为Opera浏览器！");
+            }else if(isFF()){
+                document.write("当前为火狐浏览器！");
+            }else if(isChrome()){
+                document.write("当前为谷歌浏览器！");
+            }
+            
+              function isIE(){
+                  return navigator.appName.indexOf("Microsoft Internet Explorer")!=-1 && document.all;
+              }
+
+              function isNN(){
+                 return navigator.userAgent.indexOf("Netscape")!=-1;
+              }
+
+              function isOpera(){
+                  return navigator.appName.indexOf("Opera")!=-1;
+              }
+
+              function isFF(){
+                  return navigator.userAgent.indexOf("Firefox")!=-1;
+              }
+
+              function isChrome(){
+                  return navigator.userAgent.indexOf("Chrome") > -1;
+              }
+        </script>
+    </body>
+</html>

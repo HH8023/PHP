@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li><input type="checkbox" name="like[]" id="" value="1">篮球</li>
+		<li><input type="checkbox" name="like[]" id="" value="2">足球</li>
+		<li><input type="checkbox" name="like[]" id="" value="3">打气筒</li>
+		<li><input type="checkbox" name="like[]" id="" value="4">风油精</li>
+		<li><input type="checkbox" name="like[]" id="" value="5">黄鳝</li>
+	</ul>
+	<button onclick='doSelect(true)'>全选</button>
+	<button onclick='doSelect(false)'>全不选</button>
+	<button onclick='doSelect(2)'>反选</button>
+</body>
+<script>
+	var list = document.getElementsByTagName('input');
+	function doSelect(a)
+	{
+		// alert(list[0].checked);
+		for (var i = 0; i < list.length; i++) {
+			if(a == 2){
+				//取反之后把结果赋给原来的对象
+				list[i].checked = !list[i].checked;
+			}else{
+				list[i].checked = a;
+			}
+		}
+	}
+</script>
+</html>

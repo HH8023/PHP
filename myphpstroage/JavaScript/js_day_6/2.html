@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<iframe src="demo.html" width='300' height='300'></iframe>
+	<iframe src="demo.html" width='300' height='300'></iframe>
+	<button onclick='fun()'>获取</button>
+</body>
+<script>
+	var frmes = window.frames;
+	// console.log(frmes);
+	// alert(frmes.length);
+	function fun()
+	{
+		//让按钮来获取第一个框架中的li元素集合，因为是异步加载，所以有可能窗口中的信息还未加载
+		var list = frmes[0].document.getElementsByTagName('li');
+		
+		alert(list.length);
+	}
+	// alert('等一等');
+	fun();
+</script>
+</html>

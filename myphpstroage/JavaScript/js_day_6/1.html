@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>香蕉</li>
+		<li>黄瓜</li>
+		<li>榴莲</li>
+	</ul>
+	<ul>
+		<li>娃娃</li>
+		<li>打气筒</li>
+		<li>润滑油</li>
+	</ul>
+</body>
+<script>
+	var ul = document.getElementsByTagName('ul')[1];
+	//获取ul里面第一个子节点
+	var ob = ul.firstChild;
+	// alert(ob.innerHTML);
+	var ob1 = ul.lastChild;
+	// alert(ob1.innerHTML);
+
+	//获取所有的子节点
+	var list = ul.childNodes;
+	// alert(list.length);
+
+	for (var i = 0; i < list.length; i++) {
+		if(list[i].nodeType == 1){
+			document.write(list[i].innerHTML+'<br>');
+		}
+		// document.write(list[i].nodeName+'<br>');
+		// document.write(list[i].nodeType);
+	}
+
+
+</script>
+</html>

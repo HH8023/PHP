@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick='window.alert("今天七夕")'>警告</button>
+	<button onclick='if(window.confirm("你是妹子吗？")){window.confirm("约吗？")}else{alert("滚犊子")}'>询问框</button>
+	<button onclick='var v = window.prompt("请输入银行卡密码：");alert(v)'>输入框</button>
+	<button onclick='fun()'>百度</button>
+	<button onclick='fun1()'>关闭窗口</button>
+</body>
+<script>
+	var mybaidu;
+	function fun()
+	{
+		mybaidu = window.open('1.html','','width=500,height=500');
+	}
+
+	function fun1()
+	{
+		mybaidu.close();
+	}
+</script>
+</html>
