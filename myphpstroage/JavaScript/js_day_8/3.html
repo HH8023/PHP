@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="./images/Meinv023.jpg" height='500'>
+</body>
+<script>
+	var im = document.images[0];
+	im.onclick = function()
+	{
+		// this.height = '200';				//html的属性操作
+		// this.setAttribute('height','300');	//xml的属性操作
+
+		// this.aa = '200';					//html的属性操作添加自定义属性并赋值（不好使）
+		this.setAttribute('aa','200');		//xml的属性操作添加自定义属性并赋值（好使）
+	}
+</script>
+</html>

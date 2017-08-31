@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>A.<input type="checkbox" name="q" id="">aaaaaa1</li>
+		<li>B.<input type="checkbox" name="write" id="">aaaaaa2</li>
+		<li>C.<input type="checkbox" name="a" id="">aaaaaa3</li>
+		<li>D.<input type="checkbox" name="e" id="">aaaaaa4</li>
+	</ul>	
+</body>
+<script>
+	var list = document.getElementsByTagName('li');
+	for (var i = 0; i < list.length; i++) {
+		list[i].onclick = function()
+		{
+			// this.childNodes[1].checked = !this.childNodes[1].checked;
+			// 模拟鼠标点击
+			this.childNodes[1].click();
+		}
+		list[i].childNodes[1].onclick = function(ent)
+		{
+			ent.stopPropagation();
+		}
+	}
+</script>
+</html>

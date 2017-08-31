@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{padding:0px;margin:0px;}
+	#playbox{
+		width:670px;
+		height: 240px;
+		margin:100px auto;
+		position: relative;
+	}
+	#playbox img{
+		display:none;
+	}
+	ul{
+		list-style: none;
+	}
+	#iconbox{
+		position:absolute;
+		right: 20px;
+		bottom:10px;
+	}
+	#iconbox li{
+		width:25px;
+		height: 25px;
+		float:left;
+		background:#999;
+		color:#fff;
+		margin-right: 5px;
+		text-align: center;
+		line-height: 25px;
+		border-radius: 50%;
+		cursor:pointer;
+	}
+
+</style>
+<body>
+	<div id='playbox'>
+		<img src="./image/1.jpg" style='display:block;'>
+		<img src="./image/2.jpg">
+		<img src="./image/6.jpg">
+		<img src="./image/4.jpg">
+		<img src="./image/5.jpg">
+		<div id='iconbox'>
+			<ul>
+				<li style='background-color: red;'>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>			
+		</div>
+	</div>
+</body>
+<script>
+	//图片初始下标
+	var m = 0;
+	// 获取playbox
+	var playbox = document.getElementById('playbox');
+	// 获取所有的图片
+	var imgs = document.images;
+	//获取所有的li小图标
+	var lis = document.getElementsByTagName('li');
+	//设置一个定时器
+	var timer = setInterval(run,1000);
+	
+	//轮播函数
+	function run(){
+		//每次让图片下标++
+		m++;
+		//判断是否到最后一张图片
+		if(m > imgs.length-1){
+			m = 0;
+		}
+		//调用显示图片的函数，把当前的下标传进去
+		controImg(m);
+		// 调用显示图标的函数
+		controIco(m);
+
+	}
+
+	//循环所有小图标，绑定鼠标移入事件
+	for (var i = 0; i < lis.length; i++) {
+		// 闭包函数：自己调用自己，把当前循环的i值传入，
+		(function(i){
+			// 闭包中的i形参接收的时循环时定义的闭包函数的i的值，不会随着循环的i值变化而变化
+			lis[i].onmouseover = function()
+			{
+				//调用显示图片的函数
+				controImg(i);
+				// 调用显示图标的函数
+				controIco(i);
+				// 因为当鼠标移出时会重新开始定时器，这时候m的值应该以鼠标移出的小图标的下一个作为起始位置轮播
+				m = i;
+			}
+		})(i);
+
+		// var fun = function(i){}
+		// fun(i);
+		// 等价于
+		// (function(i){})(i);
+		
+	}
+
+
+	//显示图片
+	function controImg(m)
+	{
+		//让所有图片隐藏
+		for (var i = 0; i < imgs.length; i++) {
+			imgs[i].style.display = 'none';
+		}
+		//让指定图片显示
+		imgs[m].style.display = 'block';		
+	}
+
+	//显示图标
+	function controIco(m)
+	{
+		//循环所有小图标
+		for (var i = 0; i < lis.length; i++) {
+			// 让所有小图标隐藏
+			lis[i].style.background = '#999';
+		}
+		// 让指定小图标显示
+		lis[m].style.background = 'red';
+	}
+
+	//鼠标移入轮播图，则轮播停止
+	playbox.onmouseover = function()
+	{
+		clearInterval(timer);
+	}
+
+	//鼠标移出轮播图，则轮播继续
+	playbox.onmouseout = function()
+	{
+		timer = setInterval(run,1000);
+	}
+	
+</script>
+</html>

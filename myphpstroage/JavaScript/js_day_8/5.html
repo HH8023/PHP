@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	#did{
+		width: 640px;
+		height: 400px;
+		border:1px solid blue;	
+	}
+	img{
+		width: 200px;
+		margin:5px;
+	}
+</style>
+<body>
+	<div id='did'>
+		
+	</div>
+	<select name="" id="pic">
+		<option value="Meinv021.jpg">Meinv021.jpg</option>
+		<option value="Meinv022.jpg">Meinv022.jpg</option>
+		<option value="Meinv023.jpg">Meinv023.jpg</option>
+		<option value="Meinv024.jpg">Meinv024.jpg</option>
+	</select>
+	<button onclick='doAdd()'>创建</button>
+</body>
+<script>
+	function doAdd()
+	{
+		var pic = document.getElementById('pic');
+		var im = pic.value;
+		var did = document.getElementById('did');
+
+		//必须在文档节点中创建元素节点
+		var img = document.createElement('img');		//<img>
+		img.setAttribute('src','./images/'+im);
+
+		//向did对象中插入img对象
+		//append追加
+		did.appendChild(img);
+
+	}
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	try //Internet Explorer
+	  {
+	  xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+	  }
+	catch(e)
+	  {
+	  try //Firefox, Mozilla, Opera, etc.
+	    {
+	    xmlDoc=document.implementation.createDocument("","",null);
+	    }
+	  catch(e) {
+	  	alert(e.message);
+	  }
+	  }
+	try 
+	  {
+	  //是否异步
+	  xmlDoc.async=false;
+	  //加载xml文件
+	  xmlDoc.load("stu.xml");
+	  document.write("加载完毕，可以使用");
+	  }
+	catch(e) {
+		alert(e.message);
+	}
+
+	//获取xml文档对象
+	var list = xmlDoc.getElementsByTagName('stu');
+	with(document){
+		// 生成一个表格
+		write('<table width="600" border="1">');
+		// 遍历
+		for (var i = 0; i < list.length; i++) {
+			// 生成表格的行
+			write('<tr>');
+			// 生成行里的列（第一列显示本条数据中no属性的值）
+			write('<td>'+list[i].getAttribute('no')+'</td>');
+			// 获取对象中所有的子节点
+			var stu = list[i].childNodes;
+			// 遍历
+			for (var j = 0; j < stu.length; j++) {
+				// 判断是否是元素节点
+				if(stu[j].nodeType == 1){
+					//输出文本节点的内容
+					write('<td>'+stu[j].firstChild.nodeValue+'</td>');
+				}
+			}
+
+			write('</tr>');
+		}
+
+		write('</table>');
+	}
+	
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	#did{
+		width: 850px;
+		height: 140px;
+		border:1px solid blue;	
+	}
+	img{
+		width: 192px;
+		margin:5px;
+	}
+</style>
+<body>
+	<div id='did'><img src="./images/Meinv021.jpg" alt=""
+	><img src="./images/Meinv022.jpg" alt=""
+	><img src="./images/Meinv023.jpg" alt=""
+	><img src="./images/Meinv024.jpg" alt=""
+	></div>
+</body>
+<script>
+	var list = document.images;
+	for (var i = 0; i < list.length; i++) {
+		list[i].ondblclick = function()
+		{
+			//insertBefore:必须有一个父节点，参数：第一个参数用来插入的对象，第二个参数是被插入的对象
+			document.getElementById('did').insertBefore(this,this.previousSibling);
+		}
+	}
+</script>
+</html>

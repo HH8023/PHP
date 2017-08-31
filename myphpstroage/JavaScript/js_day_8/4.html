@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="uid">
+		<li><input type="checkbox" name="like[]" id="">aaaaaa01</li>
+		<li><input type="checkbox" name="like[]" id="">aaaaaa02</li>
+		<li><input type="checkbox" name="like[]" id="">aaaaaa03</li>
+		<li><input type="checkbox" name="like[]" id="">aaaaaa04</li>
+	</ul>
+	<button onclick='doDel()'>删除</button>
+</body>
+<script>
+	function doDel()
+	{
+		var uid = document.getElementById('uid');
+		var list = document.getElementsByTagName('input');
+		for (var i = 0; i < list.length; i++) {
+			if(list[i].checked){
+				//必须从父节点去删除子节点
+				uid.removeChild(list[i].parentNode);
+				//因为数组的下标是连续的
+				i--;
+			}
+		}
+	}
+</script>
+</html>
